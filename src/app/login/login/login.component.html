@@ -1,0 +1,37 @@
+<h1>COMPONENTE LOGIN FUNCIONANDO CORRECTAMENTE</h1>
+<mat-spinner></mat-spinner>
+
+<button (click)="getData()">Execute</button>
+<button (click)="setData()">Cambiar datos</button>
+
+<div class="btn-group btn-group-toggle">
+  <label class="btn-primary" ngbButtonLabel>
+    <input type="checkbox" ngbButton [(ngModel)]="model.left"> Left (pre-checked)
+  </label>
+  <label class="btn-primary" ngbButtonLabel>
+    <input type="checkbox" ngbButton [(ngModel)]="model.middle"> Middle
+  </label>
+  <label class="btn-primary" ngbButtonLabel>
+    <input type="checkbox" ngbButton [(ngModel)]="model.right"> Right
+  </label>
+</div>
+<hr>
+<pre>{{model | json}}</pre>
+
+<hr>
+<h1>Valores en singleton</h1>
+<button (click)="getMessage()">Obtener mensaje</button>
+<button (click)="setMessage()">Modificar mensaje</button>
+
+<hr>
+<h1>Valores para los observables</h1>
+<button (click)="getObservable()">Get observable</button>
+<button (click)="setOservable()">Set observable</button>
+
+<hr>
+<h1>Componente login 2</h1>
+<p>login 1 works 
+  <button (click)="onSend()">Enviar datos</button></p>
+  <div style="border:1px solid red">
+  <app-login2></app-login2>
+</div>
