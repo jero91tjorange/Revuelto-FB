@@ -33,5 +33,47 @@
 <p>login 1 works 
   <button (click)="onSend()">Enviar datos</button></p>
   <div style="border:1px solid red">
+  <!--<app-login2></app-login2>-->
   <app-login2></app-login2>
 </div>
+
+
+<hr>
+<h1>SECCION DE REACTIVEFORMS Y PLANTILLAS EN FORMS</h1>
+
+
+
+
+<!--Recordar que los dos tipo de formularios no pueden convivir en el mismo modulo ya que podria alojarnos un error en esta o en una futura version de angular-->
+
+<!--Formulario basado en template-->
+<div id="template">
+  <h2>Formulario basado en plantillas</h2>
+  <form #formTemplate="ngForm" (ngSubmit)="onSubmit(formTemplate)"> <!--#formTemplate aqui puee ser el nombre que sea a la variable local-->
+    <input type="text" name="aa" ngModel><!--se les pasa el nombre atravez del ngModel tomando como valor el name-->
+    <input type="text" name="bb" ngModel>
+    <input type="text" name="cc" ngModel>
+    <button type="submit">Enviar</button><!--Otra forma de hacerlo es eliminar (ngSubmit)="onSubmit(formTemplate)" y agregar una funcion click a donde se van a mandar los datos -->
+  </form>
+</div>
+<hr>
+
+<!--Formulario basado en ReactiveForm----------------------------------------------------->
+<div class="horizontal">
+  <h2>Formularios reactivos</h2>
+  <input type="text" [formControl]="name"><!--Se enlaza utilizado [formControl]="Nombre de la instancia en el ts"-->
+  <button (click)="onShow()">Mostrar</button>
+
+  <div [formGroup]="formReactive"><!--Se usa la directiva formgroup para enlasar los formularios dinamicos y el formReactive es el nombre con el que manejara en el TS-->
+    <h2>Formularios reactivos con multiples campos</h2>
+    <input type="text" formControlName="name"><!--formControl name se usa para enlasar el nombre del campo al ts dentro del formulario reactivo en el TS-->
+    <input type="text" formControlName="lastname">
+    <input type="text" formControlName="date">
+    <button (click)="onShowAll()">Mostrar Todos</button>
+  </div>
+</div>
+
+<hr>
+<hr>
+<h1>login test</h1>
+<app-logintest></app-logintest>

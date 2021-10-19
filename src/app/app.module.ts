@@ -1,3 +1,4 @@
+
 import { UtilsService } from './service/utils.service';
 import { SingletonService } from './service/singleton.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';//animaciones angular material
@@ -9,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,6 +23,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,//Importar modulo de animaciones angular materials
     MatSliderModule,//comprobar que material esta instalado
     AppRoutingModule,
+    HttpClientModule//Se tiene que implementar para las peticciones http (post, put, get, patch y delete)
 
   ],
   providers: [SingletonService],

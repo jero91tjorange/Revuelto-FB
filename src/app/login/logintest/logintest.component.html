@@ -1,0 +1,35 @@
+<div class="plantilla">
+<input type="text" required minlength="5" maxlength="20" [(ngModel)]="name" #nameLocal="ngModel">
+
+    <p>{{nameLocal}}</p>
+    <div *ngIf="nameLocal.invalid && (nameLocal.touched || nameLocal.dirty)">
+        <div *ngIf="nameLocal.errors?.required">
+            <p class="required">No se puede dejar el campo vacio</p>
+        </div>
+
+        <div *ngIf="nameLocal.errors?.minlength">
+            <p class="len">el tamaño minimo es de 5 caracteres</p>
+        </div>
+
+    </div>
+</div>
+
+<hr>
+<div class="reactive">
+    <h1>Formulario reactivo</h1>
+</div>
+
+<div [formGroup]="formReactive"><!--Se usa la directiva formgroup para enlasar los formularios dinamicos y el formReactive es el nombre con el que manejara en el TS-->
+    <h2>Formularios reactivos con multiples campos</h2>
+    <input type="text" formControlName="name" placeholder="name"><!--formControl name se usa para enlasar el nombre del campo al ts dentro del formulario reactivo en el TS-->
+    <div *ngIf="getValue('name')?.invalid && (getValue('name')?.touched || getValue('name')?.dirty)">
+        <div *ngIf="getValue('name')?.errors?.required">
+            ERROR NO PUEDES DEJAR ESTE CAMPO VACIO ES OBLIGATORIO
+        </div>
+
+        <div *ngIf="getValue('name')?.errors?.minlength">
+            ERROR EL CAMPO DEBE TENER MINIMO 5 CARACTERES
+        </div>
+    </div>
+    <input type="text" formControlName="lastname" placeholder="lastname">
+</div>
